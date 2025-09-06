@@ -1,0 +1,17 @@
+---
+title: "Why Rebuild Valuation?"
+---
+
+**Thesis.** Valuation is capital allocation under uncertainty. Traditional DCF
+treats **cash flows** and the **discount rate** as exogenous inputs. The Investment
+CAPM (production-based asset pricing) derives both from the **firm’s optimal
+investment policy** under technology and adjustment costs.
+
+**What this book does.**
+
+1. Replace ad-hoc DCF components with a structural production model.
+2. Show that expected returns (risk premia) are tied to **investment** and **profitability**.
+3. Build practical workflows for investors and risk managers.
+
+
+

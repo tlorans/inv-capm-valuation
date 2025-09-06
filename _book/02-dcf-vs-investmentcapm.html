@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Thomas Lorans">
 
-<title>Valuation, Rebuilt: Investment CAPM</title>
+<title>2&nbsp; DCF vs.&nbsp;Investment CAPM – Valuation, Rebuilt: Investment CAPM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-intro.html" rel="next">
+<link href="./01-intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -71,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -83,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-dcf-vs-investmentcapm.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">DCF vs.&nbsp;Investment CAPM</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -112,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -124,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-dcf-vs-investmentcapm.html" class="sidebar-item-text sidebar-link">
+  <a href="./02-dcf-vs-investmentcapm.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">DCF vs.&nbsp;Investment CAPM</span></span></a>
   </div>
 </li>
@@ -138,7 +166,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#the-two-identities" id="toc-the-two-identities" class="nav-link active" data-scroll-target="#the-two-identities"><span class="header-section-number">2.0.1</span> The two identities</a></li>
+  <li><a href="#the-firms-problem-preview" id="toc-the-firms-problem-preview" class="nav-link" data-scroll-target="#the-firms-problem-preview"><span class="header-section-number">2.0.2</span> The firm’s problem (preview)</a></li>
+  <li><a href="#what-changes-for-practitioners" id="toc-what-changes-for-practitioners" class="nav-link" data-scroll-target="#what-changes-for-practitioners"><span class="header-section-number">2.0.3</span> What changes for practitioners?</a></li>
   </ul>
 </nav>
     </div>
@@ -147,19 +177,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Valuation, Rebuilt: Investment CAPM</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">DCF vs.&nbsp;Investment CAPM</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Thomas Lorans </p>
-          </div>
-  </div>
     
   
     
@@ -170,10 +194,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+<section id="the-two-identities" class="level3" data-number="2.0.1">
+<h3 data-number="2.0.1" class="anchored" data-anchor-id="the-two-identities"><span class="header-section-number">2.0.1</span> The two identities</h3>
+<p><strong>Traditional DCF</strong> <span class="math display">\[
+V_0=\sum_{t\ge1}\frac{E[CF_t]}{(1+r)^t}
+\]</span></p>
+<p>Cash flows and (r) are <em>assumptions</em>.</p>
+<p><strong>Investment CAPM (structural valuation)</strong> <span class="math display">\[
+V_0=E_0\sum_{t\ge1}\frac{\pi(K_t,I_t^*)-\Phi(I_t^*,K_t)}{\prod_{s=1}^t (1+R_s)}
+\]</span></p>
+<p>where (I_t^*) solves the firm’s production problem and (R_s) follows from the pricing condition (Euler equation).</p>
+</section>
+<section id="the-firms-problem-preview" class="level3" data-number="2.0.2">
+<h3 data-number="2.0.2" class="anchored" data-anchor-id="the-firms-problem-preview"><span class="header-section-number">2.0.2</span> The firm’s problem (preview)</h3>
+<p><span class="math display">\[
+\max_{\{I_t\}} E_0 \sum_{t\ge0} \frac{\pi(K_t,I_t) - \Phi(I_t,K_t)}{\prod_{s=1}^t(1+R_s)}
+\quad \text{s.t. } K_{t+1}=(1-\delta)K_t+I_t
+\]</span></p>
+<ul>
+<li>((K,I)): operating profits from capital and investment.</li>
+<li>((I,K)): convex adjustment costs (irreversibility, ramp-up frictions).</li>
+<li>Decision variable: <strong>investment</strong>.</li>
+</ul>
+</section>
+<section id="what-changes-for-practitioners" class="level3" data-number="2.0.3">
+<h3 data-number="2.0.3" class="anchored" data-anchor-id="what-changes-for-practitioners"><span class="header-section-number">2.0.3</span> What changes for practitioners?</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>DCF (reduced-form)</th>
+<th>Investment CAPM (structural)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cash flows</td>
+<td>projected line-by-line</td>
+<td>implied by ( -) at (I_t^*)</td>
+</tr>
+<tr class="even">
+<td>Discount rate</td>
+<td>chosen (CAPM/WACC)</td>
+<td>implied by Euler condition</td>
+</tr>
+<tr class="odd">
+<td>Growth</td>
+<td>plug-in (g)</td>
+<td>outcome of optimal policy</td>
+</tr>
+<tr class="even">
+<td>Risk</td>
+<td>beta heuristics</td>
+<td>tied to investment opportunities</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Investor rule.</strong> You can still produce a <strong>valuation</strong>, but now it’s internally consistent with optimal investment and risk.</p>
 
 
 </section>
@@ -581,11 +663,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./01-intro.html" class="pagination-link" aria-label="Why Rebuild Valuation?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Rebuild Valuation?</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-intro.html" class="pagination-link" aria-label="Why Rebuild Valuation?">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Rebuild Valuation?</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

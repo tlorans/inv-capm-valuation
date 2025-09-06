@@ -8,5 +8,25 @@
     "crumbs": [
       "Preface"
     ]
+  },
+  {
+    "objectID": "01-intro.html",
+    "href": "01-intro.html",
+    "title": "1  Why Rebuild Valuation?",
+    "section": "",
+    "text": "Thesis. Valuation is capital allocation under uncertainty. Traditional DCF treats cash flows and the discount rate as exogenous inputs. The Investment CAPM (production-based asset pricing) derives both from the firm’s optimal investment policy under technology and adjustment costs.\nWhat this book does.\n\nReplace ad-hoc DCF components with a structural production model.\nShow that expected returns (risk premia) are tied to investment and profitability.\nBuild practical workflows for investors and risk managers.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Why Rebuild Valuation?</span>"
+    ]
+  },
+  {
+    "objectID": "02-dcf-vs-investmentcapm.html",
+    "href": "02-dcf-vs-investmentcapm.html",
+    "title": "2  DCF vs. Investment CAPM",
+    "section": "",
+    "text": "2.0.1 The two identities\nTraditional DCF \\[\nV_0=\\sum_{t\\ge1}\\frac{E[CF_t]}{(1+r)^t}\n\\]\nCash flows and (r) are assumptions.\nInvestment CAPM (structural valuation) \\[\nV_0=E_0\\sum_{t\\ge1}\\frac{\\pi(K_t,I_t^*)-\\Phi(I_t^*,K_t)}{\\prod_{s=1}^t (1+R_s)}\n\\]\nwhere (I_t^*) solves the firm’s production problem and (R_s) follows from the pricing condition (Euler equation).\n\n\n2.0.2 The firm’s problem (preview)\n\\[\n\\max_{\\{I_t\\}} E_0 \\sum_{t\\ge0} \\frac{\\pi(K_t,I_t) - \\Phi(I_t,K_t)}{\\prod_{s=1}^t(1+R_s)}\n\\quad \\text{s.t. } K_{t+1}=(1-\\delta)K_t+I_t\n\\]\n\n((K,I)): operating profits from capital and investment.\n((I,K)): convex adjustment costs (irreversibility, ramp-up frictions).\nDecision variable: investment.\n\n\n\n2.0.3 What changes for practitioners?\n\n\n\n\n\n\n\n\nTopic\nDCF (reduced-form)\nInvestment CAPM (structural)\n\n\n\n\nCash flows\nprojected line-by-line\nimplied by ( -) at (I_t^*)\n\n\nDiscount rate\nchosen (CAPM/WACC)\nimplied by Euler condition\n\n\nGrowth\nplug-in (g)\noutcome of optimal policy\n\n\nRisk\nbeta heuristics\ntied to investment opportunities\n\n\n\nInvestor rule. You can still produce a valuation, but now it’s internally consistent with optimal investment and risk.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>DCF vs. Investment CAPM</span>"
+    ]
   }
 ]

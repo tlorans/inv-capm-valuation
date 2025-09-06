@@ -1,0 +1,42 @@
+---
+title: "DCF vs. Investment CAPM"
+---
+
+### The two identities
+
+**Traditional DCF**
+$$
+V_0=\sum_{t\ge1}\frac{E[CF_t]}{(1+r)^t}
+$$
+
+Cash flows and \(r\) are *assumptions*.
+
+**Investment CAPM (structural valuation)**
+$$
+V_0=E_0\sum_{t\ge1}\frac{\pi(K_t,I_t^*)-\Phi(I_t^*,K_t)}{\prod_{s=1}^t (1+R_s)}
+$$
+
+where \(I_t^*\) solves the firm’s production problem and \(R_s\) follows from the
+pricing condition (Euler equation).
+
+### The firm’s problem (preview)
+$$
+\max_{\{I_t\}} E_0 \sum_{t\ge0} \frac{\pi(K_t,I_t) - \Phi(I_t,K_t)}{\prod_{s=1}^t(1+R_s)}
+\quad \text{s.t. } K_{t+1}=(1-\delta)K_t+I_t
+$$
+
+- \(\pi(K,I)\): operating profits from capital and investment.
+- \(\Phi(I,K)\): convex adjustment costs (irreversibility, ramp-up frictions).
+- Decision variable: **investment**.
+
+### What changes for practitioners?
+
+| Topic | DCF (reduced-form) | Investment CAPM (structural) |
+|---|---|---|
+| Cash flows | projected line-by-line | implied by \( \pi-\Phi \) at \(I_t^*\) |
+| Discount rate | chosen (CAPM/WACC) | implied by Euler condition |
+| Growth | plug-in \(g\) | outcome of optimal policy |
+| Risk | beta heuristics | tied to investment opportunities |
+
+**Investor rule.** You can still produce a **valuation**, but now it’s internally
+consistent with optimal investment and risk.

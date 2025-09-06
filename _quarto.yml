@@ -5,8 +5,8 @@ book:
   author: "Thomas Lorans"
   chapters:
     - index.qmd
-    # - 01-intro.qmd
-    # - 02-dcf-vs-investmentcapm.qmd
+    - 01-intro.qmd
+    - 02-dcf-vs-investmentcapm.qmd
     # - 03-firm-problem.qmd
     # - 04-euler-marginal-q.qmd
     # - 05-cashflows-from-production.qmd
@@ -19,6 +19,7 @@ format:
     theme: cosmo
     toc: true
     number-sections: true
+    html-math-method: mathjax   # ✅ force MathJax
 execute:
   echo: true
   warning: false
